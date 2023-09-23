@@ -8,13 +8,14 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 class TemperatureControlTest {
     @Test
     @DisplayName("theUserMustEnterSevenTemperatureValues")
     void theUserMustEnterSevenTemperatureValues() {
-        List<Integer> list = new ArrayList<>();
-        list.add(20); list.add(20); list.add(20); list.add(22); list.add(18); list.add(17); list.add(23);
+        List<String> list = new ArrayList<>();
+        list.add("20"); list.add("20"); list.add("20"); list.add("22"); list.add("18"); list.add("17"); list.add("23");
 
         TemperatureControl sut = new TemperatureControl(list);
         Integer numberInputs = sut.getNumberOfTemperatures();
@@ -24,8 +25,8 @@ class TemperatureControlTest {
     @Test
     @DisplayName("theAverageMustBeEqualTo20")
     void theAverageMustBeEqualTo20() {
-        List<Integer> list = new ArrayList<>();
-        list.add(20); list.add(20); list.add(20); list.add(22); list.add(18); list.add(17); list.add(23);
+        List<String> list = new ArrayList<>();
+        list.add("20"); list.add("20"); list.add("20"); list.add("22"); list.add("18"); list.add("17"); list.add("23");
 
         TemperatureControl sut = new TemperatureControl(list);
         Double media = sut.calculateAverage();
@@ -35,8 +36,8 @@ class TemperatureControlTest {
     @Test
     @DisplayName("theAverageMustBeEqualTo30")
     void theAverageMustBeEqualTo30() {
-        List<Integer> list = new ArrayList<>();
-        list.add(30); list.add(27); list.add(30); list.add(33); list.add(30); list.add(32); list.add(28);
+        List<String> list = new ArrayList<>();
+        list.add("30"); list.add("27"); list.add("30"); list.add("33"); list.add("30"); list.add("32"); list.add("28");
 
         TemperatureControl sut = new TemperatureControl(list);
         Double media = sut.calculateAverage();
@@ -46,8 +47,8 @@ class TemperatureControlTest {
     @Test
     @DisplayName("shouldReturnOneDayAboveAverage")
     void shouldReturnOneDayAboveAverage() {
-        List<Integer> list = new ArrayList<>();
-        list.add(30); list.add(30); list.add(30); list.add(33); list.add(30); list.add(30); list.add(30);
+        List<String> list = new ArrayList<>();
+        list.add("30"); list.add("30"); list.add("30"); list.add("33"); list.add("30"); list.add("30"); list.add("30");
 
         TemperatureControl sut = new TemperatureControl(list);
         assertThat(sut.daysAboveAverage()).isEqualTo(1);
@@ -56,8 +57,8 @@ class TemperatureControlTest {
     @Test
     @DisplayName("ifUserEntersAnIncorrectNumberOfTemperaturesAnIllegalArgumentExceptionMustBeThrown.")
     void ifUserEntersAnIncorrectNumberOfTemperaturesAnIllegalArgumentExceptionMustBeThrown() {
-        List<Integer> list = new ArrayList<>();
-        list.add(30); list.add(30); list.add(30); list.add(33);
+        List<String> list = new ArrayList<>();
+        list.add("30"); list.add("30"); list.add("30"); list.add("33");
 
         TemperatureControl sut = new TemperatureControl(list);
         assertThrows(IllegalArgumentException.class,
@@ -69,10 +70,11 @@ class TemperatureControlTest {
     @Test
     @DisplayName("mustReturnTrueIfTheNumberOfEntriesIsValid")
     void mustReturnTrueIfTheNumberOfEntriesIsValid() {
-        List<Integer> list = new ArrayList<>();
-        list.add(30); list.add(30); list.add(30); list.add(33); list.add(30); list.add(30); list.add(30);
+        List<String> list = new ArrayList<>();
+        list.add("30"); list.add("30"); list.add("30"); list.add("33"); list.add("30"); list.add("30"); list.add("30");
 
         TemperatureControl sut = new TemperatureControl(list);
         assertThat(sut.validateEntry()).isTrue();
     }
+
 }

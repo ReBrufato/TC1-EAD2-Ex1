@@ -4,12 +4,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TemperatureControl {
-    private List<Integer> temperatures;
+    private List<String> temperatures;
+
     private Double media;
 
     private Scanner input;
 
-    public TemperatureControl(List<Integer> temperatures) {
+    public Double getMedia() {
+        return media;
+    }
+
+    public TemperatureControl(List<String> temperatures) {
         this.temperatures = temperatures;
         this.media = null;
     }
@@ -23,10 +28,7 @@ public class TemperatureControl {
 
     public void getInput(){
         System.out.println("Digite as temperaturas: ");
-        String temp[] = input.nextLine().split(" ");
-        for (String temperature: temp) {
-            temperatures.add(Integer.parseInt(temperature));
-        }
+        temperatures = List.of(input.nextLine().split(" "));
         validateEntry();
     }
 
@@ -48,15 +50,15 @@ public class TemperatureControl {
 
     public Double sumTemperatures(){
         Double soma = 0.00;
-        for (Integer tempepature : temperatures) {soma = soma + tempepature;}
+        for (String temperature : temperatures) {soma = soma + Double.parseDouble(temperature);}
         return soma;
     }
 
     public Integer daysAboveAverage(){
         Integer aboveMedia = 0;
         media = calculateAverage();
-        for (Integer tempepature : temperatures) {
-            if (tempepature > media) aboveMedia ++;
+        for (String temperature : temperatures) {
+            if (Integer.valueOf(temperature) > media) aboveMedia ++;
         }
         return aboveMedia;
     }
