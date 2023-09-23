@@ -28,6 +28,9 @@ public class TemperatureControl {
     }
 
     public Boolean validateEntry(){
+        if (getNumberOfTemperatures() < 7 || getNumberOfTemperatures() > 7){
+            throw new IllegalArgumentException("Número de entradas inválido!");
+        }
         return false;
     }
 
