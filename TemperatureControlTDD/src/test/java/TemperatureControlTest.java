@@ -13,7 +13,10 @@ class TemperatureControlTest {
     @Test
     @DisplayName("theUserMustEnterSevenTemperatureValues")
     void theUserMustEnterSevenTemperatureValues() {
-        TemperatureControl sut = new TemperatureControl();
+        List<Integer> list = new ArrayList<>();
+        list.add(20); list.add(20); list.add(20); list.add(22); list.add(18); list.add(17); list.add(23);
+
+        TemperatureControl sut = new TemperatureControl(list);
         Integer numberInputs = sut.getNumberOfTemperatures();
         assertThat(numberInputs).isEqualTo(7);
     }
