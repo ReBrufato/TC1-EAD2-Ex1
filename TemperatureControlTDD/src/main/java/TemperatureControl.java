@@ -46,7 +46,7 @@ public class TemperatureControl {
                 throw new IllegalArgumentException("Tipo de entrada não numérica!");
             };
         }
-        return false;
+        return true;
     }
 
     public Integer getNumberOfTemperatures(){
