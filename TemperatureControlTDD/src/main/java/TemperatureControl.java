@@ -31,7 +31,7 @@ public class TemperatureControl {
         if (getNumberOfTemperatures() < 7 || getNumberOfTemperatures() > 7){
             throw new IllegalArgumentException("Número de entradas inválido!");
         }
-        return false;
+        return true;
     }
 
     public Integer getNumberOfTemperatures(){
