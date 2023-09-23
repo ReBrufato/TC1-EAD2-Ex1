@@ -42,6 +42,11 @@ public class TemperatureControl {
     }
 
     public Integer daysAboveAverage(){
-        return 0;
+        Integer aboveMedia = 0;
+        media = calculateAverage();
+        for (Integer tempepature : temperatures) {
+            if (tempepature > media) aboveMedia ++;
+        }
+        return aboveMedia;
     }
 }
