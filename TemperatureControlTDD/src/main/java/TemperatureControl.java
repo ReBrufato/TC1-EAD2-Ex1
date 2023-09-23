@@ -22,4 +22,8 @@ public class TemperatureControl {
         getInput();
         return temperatures.size();
     }
+
+    public Double calculateAverage(){
+        return 0.0;
+    }
 }
