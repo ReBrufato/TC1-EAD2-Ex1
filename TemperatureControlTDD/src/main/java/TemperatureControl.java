@@ -3,27 +3,36 @@ import java.util.List;
 
 public class TemperatureControl {
     private List<Integer> temperatures;
+    private Double media;
 
     public TemperatureControl() {
         this.temperatures = new ArrayList<>();
+        this.media = null;
+        getInput();
     }
 
     public void getInput(){
-        temperatures.add(22);
         temperatures.add(20);
-        temperatures.add(24);
-        temperatures.add(17);
-        temperatures.add(15);
-        temperatures.add(23);
-        temperatures.add(22);
+        temperatures.add(20);
+        temperatures.add(20);
+        temperatures.add(20);
+        temperatures.add(20);
+        temperatures.add(20);
+        temperatures.add(20);
     }
 
     public Integer getNumberOfTemperatures(){
-        getInput();
         return temperatures.size();
     }
 
     public Double calculateAverage(){
-        return 0.0;
+        media = sumTemperatures()/7.00;
+        return media;
+    }
+
+    public Double sumTemperatures(){
+        Double soma = 0.00;
+        for (Integer tempepature : temperatures) {soma = soma + tempepature;}
+        return soma;
     }
 }
