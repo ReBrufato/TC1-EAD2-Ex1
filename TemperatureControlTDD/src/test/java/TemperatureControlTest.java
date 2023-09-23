@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -5,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 class TemperatureControlTest {
     @Test
@@ -46,5 +48,18 @@ class TemperatureControlTest {
 
         TemperatureControl sut = new TemperatureControl(list);
         assertThat(sut.daysAboveAverage()).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("ifUserEntersAnIncorrectNumberOfTemperaturesAnIllegalArgumentExceptionMustBeThrown.")
+    void ifUserEntersAnIncorrectNumberOfTemperaturesAnIllegalArgumentExceptionMustBeThrown() {
+        List<Integer> list = new ArrayList<>();
+        list.add(30); list.add(30); list.add(30); list.add(33);
+
+        TemperatureControl sut = new TemperatureControl(list);
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    sut.validateEntry();
+                });
     }
 }

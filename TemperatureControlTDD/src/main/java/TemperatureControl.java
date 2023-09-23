@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class TemperatureControl {
     private List<Integer> temperatures;
@@ -24,6 +25,10 @@ public class TemperatureControl {
         temperatures.add(20);
         temperatures.add(20);
         temperatures.add(20);
+    }
+
+    public Boolean validateEntry(){
+        return false;
     }
 
     public Integer getNumberOfTemperatures(){
