@@ -1,4 +1,5 @@
 public class Main {
-    TemperatureControl temperatureControl;
-
+    public static void main(String[] args) {
+        TemperatureControl temperatureControl = new TemperatureControl();
+    }
 }

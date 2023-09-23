@@ -1,10 +1,13 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
 public class TemperatureControl {
     private List<Integer> temperatures;
     private Double media;
+
+    private Scanner input;
 
     public TemperatureControl(List<Integer> temperatures) {
         this.temperatures = temperatures;
@@ -14,17 +17,17 @@ public class TemperatureControl {
     public TemperatureControl() {
         this.temperatures = new ArrayList<>();
         this.media = null;
+        this.input = new Scanner(System.in);
         getInput();
     }
 
     public void getInput(){
-        temperatures.add(20);
-        temperatures.add(20);
-        temperatures.add(20);
-        temperatures.add(20);
-        temperatures.add(20);
-        temperatures.add(20);
-        temperatures.add(20);
+        System.out.println("Digite as temperaturas: ");
+        String temp[] = input.nextLine().split(" ");
+        for (String temperature: temp) {
+            temperatures.add(Integer.parseInt(temperature));
+        }
+        validateEntry();
     }
 
     public Boolean validateEntry(){
