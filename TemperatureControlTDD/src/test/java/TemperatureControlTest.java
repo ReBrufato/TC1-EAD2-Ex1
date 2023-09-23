@@ -88,4 +88,14 @@ class TemperatureControlTest {
                 });
     }
 
+    @Test
+    @DisplayName("mustReturnTrueIfTheInputIsJustNumbers")
+    void mustReturnTrueIfTheInputIsJustNumbers() {
+        List<String> list = new ArrayList<>();
+        list.add("30"); list.add("30"); list.add("Olá"); list.add("33"); list.add("30"); list.add("30"); list.add("30");
+
+        TemperatureControl sut = new TemperatureControl(list);
+        assertThat(sut.validatetypeEntries()).isTrue();
+    }
+
 }
