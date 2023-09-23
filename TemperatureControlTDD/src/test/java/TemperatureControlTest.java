@@ -62,4 +62,14 @@ class TemperatureControlTest {
                     sut.validateEntry();
                 });
     }
+
+    @Test
+    @DisplayName("mustReturnTrueIfTheNumberOfEntriesIsValid")
+    void mustReturnTrueIfTheNumberOfEntriesIsValid() {
+        List<Integer> list = new ArrayList<>();
+        list.add(30); list.add(30); list.add(30); list.add(33); list.add(30); list.add(30); list.add(30);
+
+        TemperatureControl sut = new TemperatureControl(list);
+        assertThat(sut.validateEntry()).isTrue();
+    }
 }
