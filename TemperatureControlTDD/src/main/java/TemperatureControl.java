@@ -39,7 +39,14 @@ public class TemperatureControl {
     }
 
     public Boolean validatetypeEntries(){
-        return false;
+        for (String value : temperatures) {
+            try{
+                Integer.parseInt(value);
+            }catch (IllegalArgumentException e){
+                throw new IllegalArgumentException("Tipo de entrada não numérica!");
+            };
+        }
+        return true;
     }
 
     public Integer getNumberOfTemperatures(){
