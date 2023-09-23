@@ -16,8 +16,6 @@ public class TemperatureControl {
         getInput();
     }
 
-
-
     public void getInput(){
         temperatures.add(20);
         temperatures.add(20);
@@ -41,5 +39,9 @@ public class TemperatureControl {
         Double soma = 0.00;
         for (Integer tempepature : temperatures) {soma = soma + tempepature;}
         return soma;
+    }
+
+    public Integer daysAboveAverage(){
+        return 0;
     }
 }

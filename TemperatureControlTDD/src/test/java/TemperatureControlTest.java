@@ -37,4 +37,14 @@ class TemperatureControlTest {
         Double media = sut.calculateAverage();
         assertThat(media).isEqualTo(30.0);
     }
+
+    @Test
+    @DisplayName("shouldReturnOneDayAboveAverage")
+    void shouldReturnOneDayAboveAverage() {
+        List<Integer> list = new ArrayList<>();
+        list.add(30); list.add(30); list.add(30); list.add(33); list.add(30); list.add(30); list.add(30);
+
+        TemperatureControl sut = new TemperatureControl(list);
+        assertThat(sut.daysAboveAverage()).isEqualTo(1);
+    }
 }
