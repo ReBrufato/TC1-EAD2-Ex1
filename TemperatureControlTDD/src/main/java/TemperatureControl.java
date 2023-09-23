@@ -38,6 +38,10 @@ public class TemperatureControl {
         return true;
     }
 
+    public Boolean validatetypeEntries(){
+        return false;
+    }
+
     public Integer getNumberOfTemperatures(){
         return temperatures.size();
     }
