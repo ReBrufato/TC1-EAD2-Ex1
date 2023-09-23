@@ -20,4 +20,12 @@ class TemperatureControlTest {
         Double media = sut.calculateAverage();
         assertThat(media).isEqualTo(20.0);
     }
+
+    @Test
+    @DisplayName("theAverageMustBeEqualTo30")
+    void theAverageMustBeEqualTo30() {
+        TemperatureControl sut = new TemperatureControl();
+        Double media = sut.calculateAverage();
+        assertThat(media).isEqualTo(30.0);
+    }
 }
