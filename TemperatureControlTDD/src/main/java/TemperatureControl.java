@@ -5,11 +5,18 @@ public class TemperatureControl {
     private List<Integer> temperatures;
     private Double media;
 
+    public TemperatureControl(List<Integer> temperatures) {
+        this.temperatures = temperatures;
+        this.media = null;
+    }
+
     public TemperatureControl() {
         this.temperatures = new ArrayList<>();
         this.media = null;
         getInput();
     }
+
+
 
     public void getInput(){
         temperatures.add(20);
