@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,10 +28,10 @@ public class TemperatureControl {
     public void getInput(){
         System.out.println("Digite as temperaturas: ");
         temperatures = List.of(input.nextLine().split(" "));
-        validateEntry();
+        validateNumberEntries();
     }
 
-    public Boolean validateEntry(){
+    public Boolean validateNumberEntries(){
         if (getNumberOfTemperatures() < 7 || getNumberOfTemperatures() > 7){
             throw new IllegalArgumentException("Número de entradas inválido!");
         }

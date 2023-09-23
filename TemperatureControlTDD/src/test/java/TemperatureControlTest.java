@@ -1,9 +1,7 @@
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -63,7 +61,7 @@ class TemperatureControlTest {
         TemperatureControl sut = new TemperatureControl(list);
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    sut.validateEntry();
+                    sut.validateNumberEntries();
                 });
     }
 
@@ -74,7 +72,7 @@ class TemperatureControlTest {
         list.add("30"); list.add("30"); list.add("30"); list.add("33"); list.add("30"); list.add("30"); list.add("30");
 
         TemperatureControl sut = new TemperatureControl(list);
-        assertThat(sut.validateEntry()).isTrue();
+        assertThat(sut.validateNumberEntries()).isTrue();
     }
 
 }
